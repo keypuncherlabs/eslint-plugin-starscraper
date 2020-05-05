@@ -6,17 +6,29 @@ The standard guide to convention for Starscraper projects
 
 Install the package
 
-`$ npm install eslint-config-starscraper`
+`$ npm install eslint-plugin-starscraper`
 
 ## Using the rule(s)
 
-Add to rule(s) to the .eslintrc file
+Add the plugin to the list of plugins in the .eslintrc file
+
+```
+{
+  -----------
+  "plugins": [
+    "starscraper"
+  ],
+  --------------
+}
+```
+
+Add to rule(s)
 
 ```
 {
   -----------
   "rules": {
-    "eslint-plugin-custom-props-writing-rule"/validate-test-intl-id": "warn"
+    "starscraper/validate-test-intl-id": "warn"
   },
   --------------
 }
