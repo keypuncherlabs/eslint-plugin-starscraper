@@ -9,11 +9,10 @@ The standard guide to convention for Starscraper projects
 ## Using the rule(s)
 - Add to rule(s) to the .eslintrc file
 
-`{
-  -----------
-  "rules": {
-    "eslint-plugin-custom-props-writing-rule"/validate-test-intl-id": "warn"
-  },
-  --------------
-}
-`
+    {
+      -----------
+      "rules": {
+        "eslint-plugin-custom-props-writing-rule"/validate-test-intl-id": "warn"
+      },
+      --------------
+    }
