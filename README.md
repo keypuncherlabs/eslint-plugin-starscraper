@@ -6,7 +6,7 @@ The standard guide to convention for Starscraper projects
 
 - Install the package
 
-    $ npm install eslint-config-starscraper
+`$ npm install eslint-config-starscraper`
 
 ## Using the rule(s)
 
