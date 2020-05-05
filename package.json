@@ -1,0 +1,23 @@
+{
+  "name": "eslint-config-starscraper",
+  "version": "1.0.0",
+  "description": "The standard guide to convention for Starscraper projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/star-scraper/eslint-config-starscraper.git"
+  },
+  "keywords": [
+    "eslint",
+    "starscraper"
+  ],
+  "author": "Charles Markovich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/star-scraper/eslint-config-starscraper/issues"
+  },
+  "homepage": "https://github.com/star-scraper/eslint-config-starscraper#readme"
+}
