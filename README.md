@@ -28,7 +28,8 @@ Add to rule(s)
 {
   -----------
   "rules": {
-    "starscraper/validate-test-intl-id": "warn"
+    "starscraper/test-id-match": "error",
+    "starscraper/intl-id-match": "error",
   },
   --------------
 }
