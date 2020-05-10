@@ -1,12 +1,22 @@
 {
   "name": "eslint-plugin-starscraper",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "1.0.1",
+  "description": "The standard guide to convention for Starscraper projects",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/star-scraper/eslint-plugin-starscraper.git"
+  },
+  "keywords": [
+    "eslint",
+    "starscraper"
+  ],
+  "author": "Charles Markovich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/star-scraper/eslint-plugin-starscraper/issues"
+  },
+  "homepage": "https://github.com/star-scraper/eslint-plugin-starscraper#readme"
 }
