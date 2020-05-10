@@ -5,8 +5,8 @@ const ERRTESTEXACTENUM = 'Invalid for testid, please use button, link, paragraph
 const ERRINTL = 'Invalid for id, please use this format screenName.shortDescription.elementType.textType';
 const ERRINTFILE = 'Invalid for intlid, please use filename for first word for test id';
 const ERRINTCML = 'Invalid for intlid, please use camel case and max 20 charcters for shortDescription ';
-const ERRINTEXACTENUMELM = 'Invalid for testid, please use button, link, paragraph, input, subHeader or header for element type ';
-const ERRINTEXACTENUMTXT = 'Invalid for testid, please use text, placeHolder, message, errorMessage, loadingText or hoverText  for text type ';
+const ERRINTEXACTENUMELM = 'Invalid for intlid, please use button, link, paragraph, input, subHeader or header for element type ';
+const ERRINTEXACTENUMTXT = 'Invalid for intlid, please use text, placeHolder, message, errorMessage, loadingText or hoverText  for text type ';
 
 
 const camelize = (str) => {
@@ -71,7 +71,7 @@ const checkValideTestId = function (str, path, context, node)  {
 
 const checkValideIntlId = function (str, path, context, node)  {
   const exactFileName = getFileName(path);
-  const validInputType = ['button', 'link', 'paragraph', 'input', 'subHeader', 'header'];
+  const validInputType = ['button', 'link', 'paragraph', 'input', 'subHeader', 'label', 'text', 'header'];
   const vaildTestType = ['text', 'placeHolder', 'message', 'errorMessage', 'loadingText', 'hoverText']
   const numberOfSplitValue = str && str.split(".");
   const patt = /^([a-z][A-Za-z]).{1,18}$/;
@@ -110,6 +110,17 @@ const checkValideIntlId = function (str, path, context, node)  {
   }
 }
 
+const checkIntlIdHandler = (intlProps , type, fileName, context, node) => {
+  intlProps.forEach((prop) => {
+    const isIntlId =  type === 'component' ? prop.type === 'JSXAttribute' &&
+          prop.name.name === 'id' :  prop.key.type === 'Identifier' &&
+          prop.key.name === 'id';
+    if(isIntlId) {
+      checkValideIntlId(prop.value.value, fileName, context, node)
+    }
+  });
+}
+
 module.exports = {
     rules: {
       "test-id-match": {
@@ -130,20 +141,22 @@ module.exports = {
     },
     "intl-id-match" : {
       create: function (context) {
+        const fileName = context.getFilename();
         return {
+          JSXOpeningElement: function(node) {
+            const nodeType = node.name.name;
+            if (nodeType === 'FormattedMessage') {
+              const intlProps = node.attributes;
+              checkIntlIdHandler(intlProps, 'component', fileName, context, node)
+            }
+          },
           CallExpression: function(node) {
-            const fileName = context.getFilename();
+           
             const objectName = node.callee.object && node.callee.object.name;
-              if (objectName === 'intl') {
+              if (objectName === 'intl' ) {
                 const intlProps = node.arguments[0].properties;
     
-                intlProps.forEach((prop) => {
-                  const isIntlId = prop.key.type === 'Identifier' &&
-                        prop.key.name === 'id';
-                  if(isIntlId) {
-                    checkValideIntlId(prop.value.value, fileName, context, node)
-                  }
-                });
+                checkIntlIdHandler(intlProps, 'key', fileName, context, node)
                 
               }
     
