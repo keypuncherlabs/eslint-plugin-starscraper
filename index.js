@@ -1,9 +1,5 @@
 
 const ids = [];
-// const language = require('../../src/translations/de');
-
-
-
 const ERRTEST = 'Invalid for testid, please use this format screenName.shortDescription.elementType';
 const ERRTESTFILE = 'Invalid for testid, please use filename for first word for test id';
 const ERRTESTCML = 'Invalid for testid, please use camel case and max 20 charcters for shortDescription ';
@@ -20,6 +16,11 @@ const camelize = (str) => {
   let capital = arr.map((item, index) => index ? item.charAt(0).toUpperCase() + item.slice(1).toLowerCase() : item);
   let capitalString = capital.join("");
   return capitalString;
+}
+
+const countHelper = (input, arr ) => {
+  const count = arr.filter(x => x === input).length;
+  return count;
 }
 
 const fileNameCheck = (exactFileName, firstSplitValue) => {
@@ -162,21 +163,24 @@ module.exports = {
     "validate-unique-test-intl-id": {
       create: function (context) {
         return {
-          // JSXAttribute(node) {
-          //   const propName = node.name && node.name.name;
-          //   const value = node.value;
-          //   if(propName === 'testID' || propName === 'tabBarTestID') {
-          //       const ids = Object.keys(language); ;
-          //       if (ids.includes(value)) {
-          //         context.report({
-          //           node,
-          //           message: 'This id is taken , please use an unique one.',
-          //           data: ''
-          //         });
-          //       }
-              
-          //   }
-          // }
+
+          JSXOpeningElement: function (node) {
+            node.attributes.forEach((attr) => {
+              const isTestId = attr.type === 'JSXAttribute' &&
+                    attr.name.name === 'testID';
+              if (isTestId && attr.value.type) {
+                const testValue = attr.value.value;
+                const countCurId = countHelper(testValue, ids)
+                if (countCurId >= 2 ) {
+                  context.report({
+                    node,
+                    message: 'This id is taken , please use an unique one.',
+                    data: ''
+                  });
+                }
+              }
+            });
+          },
 
           CallExpression: function(node) {
             const objectName = node.callee.object && node.callee.object.name;
@@ -187,7 +191,8 @@ module.exports = {
                         prop.key.name === 'id';
                   if(isIntlId) {
                     const intlIDValue = prop.value.value;
-                if (ids.includes(intlIDValue)) {
+                    const countCurId = countHelper(intlIDValue, ids)
+                if (countCurId >= 2) {
                   context.report({
                     node,
                     message: 'This id is taken , please use an unique one.',
