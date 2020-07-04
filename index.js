@@ -171,7 +171,7 @@ module.exports = {
               if (isTestId && attr.value.type) {
                 const testValue = attr.value.value;
                 const countCurId = countHelper(testValue, ids)
-                if (countCurId >= 2 ) {
+                if (testValue && countCurId >= 2 ) {
                   context.report({
                     node,
                     message: 'This id is taken , please use an unique one.',
@@ -192,7 +192,7 @@ module.exports = {
                   if(isIntlId) {
                     const intlIDValue = prop.value.value;
                     const countCurId = countHelper(intlIDValue, ids)
-                if (countCurId >= 2) {
+                if (intlIDValue && countCurId >= 2) {
                   context.report({
                     node,
                     message: 'This id is taken , please use an unique one.',
