@@ -11,34 +11,36 @@ Install the package
 ## Rules
 
 ### "test-id-match"
+  > Enforce the consistancy of Test Id naming convention
 
   - Example: `screenName.shortDescription.elementType`
 
-  - Screen Name (home, login, sign-out) - must match filename (you can use "context.getFilename()")
+    - Screen Name (home, login, sign-out) - must match filename (you can use "context.getFilename()")
 
-  - Short Description (welcome, explanation, info) - allow only alphabetic characters, enforce camel casing and 20 character max string length
+    - Short Description (welcome, explanation, info) - allow only alphabetic characters, enforce camel casing and 20 character max string length
 
-  - Element Type (button, link, paragraph, input, subHeader) - use an enum to validate the type allowed
+    - Element Type (button, link, paragraph, input, subHeader) - use an enum to validate the type allowed
 
 ### "intl-id-match"
+  > Enforce the consistancy of Intl Id naming convention
 
-    Example: 'screenName.shortDescription.elementType.textType'
+  - Example: 'screenName.shortDescription.elementType.textType'
 
-    Screen Name (home, login, sign-out) - must match filename (you can use "context.getFilename()")
+    - Screen Name (home, login, sign-out) - must match filename (you can use "context.getFilename()")
 
-    Short Description (welcome, explanation, info) - allow only alphabetic characters, enforce camel casing and 20 character max string length
+    - Short Description (welcome, explanation, info) - allow only alphabetic characters, enforce camel casing and 20 character max string length
 
-    Element Type (button, link, paragraph, input, subHeader) - use an enum to validate the type allowed
+    - Element Type (button, link, paragraph, input, subHeader) - use an enum to validate the type allowed
 
-    Text Type (text, placeHolder, message, errorMessage, loadingText, hoverText) - use an enum to validate the type allowed
+    - Text Type (text, placeHolder, message, errorMessage, loadingText, hoverText) - use an enum to validate the type allowed
 
 ### 'validate-unique-test-id'
 
-    Ensure Test Id is always unique across files
+  > Enforce Test Id is unique across files
 
 ### 'validate-unique-intl-id'
 
-  Ensure Intl Id is always unique across files
+  > Enforce Intl Id is unique across files
 
 ## Using the rule(s)
 
