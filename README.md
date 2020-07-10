@@ -62,7 +62,8 @@ Add to rule(s)
   "rules": {
     "starscraper/test-id-match": "error",
     "starscraper/intl-id-match": "error",
-     "starscraper/validate-unique-test-intl-id": "error",
+    "starscraper/validate-unique-test-id": "error",
+    "starscraper/validate-unique-intl-id": "error",
   },
   --------------
 }
