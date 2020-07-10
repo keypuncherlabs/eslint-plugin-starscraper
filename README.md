@@ -12,9 +12,7 @@ Install the package
 
 ### "test-id-match"
 
-  - Example:
-
-  `screenName.shortDescription.elementType`
+  - Example: `screenName.shortDescription.elementType`
 
   - Screen Name (home, login, sign-out) - must match filename (you can use "context.getFilename()")
 
