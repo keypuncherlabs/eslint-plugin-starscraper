@@ -34,11 +34,11 @@ Install the package
 
     - Text Type (text, placeHolder, message, errorMessage, loadingText, hoverText) - use an enum to validate the type allowed
 
-### 'validate-unique-test-id'
+### 'unique-test-id'
 
   > Enforce Test Id is unique across files
 
-### 'validate-unique-intl-id'
+### 'unique-intl-id'
 
   > Enforce Intl Id is unique across files
 
@@ -64,8 +64,8 @@ Add to rule(s)
   "rules": {
     "starscraper/test-id-match": "error",
     "starscraper/intl-id-match": "error",
-    "starscraper/validate-unique-test-id": "error",
-    "starscraper/validate-unique-intl-id": "error",
+    "starscraper/unique-test-id": "error",
+    "starscraper/unique-intl-id": "error",
   },
   --------------
 }
