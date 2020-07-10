@@ -12,13 +12,15 @@ Install the package
 
 ### "test-id-match"
 
-    Example: 'screenName.shortDescription.elementType'
++ Example:
 
-    Screen Name (home, login, sign-out) - must match filename (you can use "context.getFilename()")
+    screenName.shortDescription.elementType
 
-    Short Description (welcome, explanation, info) - allow only alphabetic characters, enforce camel casing and 20 character max string length
++ Screen Name (home, login, sign-out) - must match filename (you can use "context.getFilename()")
 
-    Element Type (button, link, paragraph, input, subHeader) - use an enum to validate the type allowed
++ Short Description (welcome, explanation, info) - allow only alphabetic characters, enforce camel casing and 20 character max string length
+
++ Element Type (button, link, paragraph, input, subHeader) - use an enum to validate the type allowed
 
 ### "intl-id-match"
 
