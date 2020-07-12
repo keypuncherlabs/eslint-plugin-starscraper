@@ -160,7 +160,7 @@ module.exports = {
         }
       }
     },
-    "validate-unique-test-intl-id": {
+    "unique-test-ids": {
       create: function (context) {
         return {
 
@@ -182,6 +182,13 @@ module.exports = {
             });
           },
 
+          
+        }
+      }
+    },
+    "unique-intl-ids": {
+      create: function (context) {
+        return {
           CallExpression: function(node) {
             const objectName = node.callee.object && node.callee.object.name;
               if (objectName === 'intl') {
@@ -203,7 +210,7 @@ module.exports = {
                 });
                 
               }
-    
+        
             },
         }
       }
