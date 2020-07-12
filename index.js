@@ -214,6 +214,29 @@ module.exports = {
             },
         }
       }
+    },
+    "required-fields-for-intl": { 
+      create: function (context) {
+        return {
+          CallExpression: function(node) {
+            const objectName = node.callee.object && node.callee.object.name;
+              if (objectName === 'intl') {
+                const intlProps = node.arguments[0].properties;
+                intlProps.forEach((prop) => {
+                  if( intlProps.length < 3 || (prop.key.name !== "id" && prop.key.name !== "defaultMessage" && prop.key.name !== "description") )
+                  context.report({
+                      node,
+                      message: 'The id, defaultMessage and description are required for intl ',
+                      data: ''
+                    });
+                });
+                
+              }
+    
+            },
+      }
+    }
+
     }
     }
   };

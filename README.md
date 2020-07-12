@@ -42,6 +42,10 @@ Install the package
 
   > Enforce Intl Id is unique across files
 
+### 'required-fields-for-intl'
+
+  > Enforce Intl with Id , defaultMessage  and description property
+
 ## Using the rule(s)
 
 Add the plugin to the list of plugins in the .eslintrc file
@@ -65,7 +69,8 @@ Add to rule(s)
     "starscraper/test-id-match": "error",
     "starscraper/intl-id-match": "error",
     "starscraper/unique-test-ids": "error",
-    "starscraper/unique-intl-ids: "error",
+    "starscraper/unique-intl-ids": "error",
+    "starscraper/required-fields-for-intl": "error",
   },
   --------------
 }
