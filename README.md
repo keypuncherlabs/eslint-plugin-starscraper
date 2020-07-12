@@ -42,7 +42,7 @@ Install the package
 
   > Enforce Intl Id is unique across files
 
-### 'required-feilds-for-intl'
+### 'required-fields-for-intl'
 
   > Enforce Intl with Id , defaultMessage  and description property
 
@@ -70,7 +70,7 @@ Add to rule(s)
     "starscraper/intl-id-match": "error",
     "starscraper/unique-test-ids": "error",
     "starscraper/unique-intl-ids": "error",
-    "starscraper/required-feilds-for-intl": "error",
+    "starscraper/required-fields-for-intl": "error",
   },
   --------------
 }

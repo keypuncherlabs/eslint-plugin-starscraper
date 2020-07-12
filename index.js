@@ -215,7 +215,7 @@ module.exports = {
         }
       }
     },
-    "required-feilds-for-intl": { 
+    "required-fields-for-intl": { 
       create: function (context) {
         return {
           CallExpression: function(node) {
