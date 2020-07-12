@@ -46,6 +46,10 @@ Install the package
 
   > Enforce Intl with Id , defaultMessage  and description property
 
+### 'spacing-system'
+
+  > Absolute pixel values can never be provided to font-sizes, margins, or padding
+
 ## Using the rule(s)
 
 Add the plugin to the list of plugins in the .eslintrc file
@@ -70,7 +74,8 @@ Add to rule(s)
     "starscraper/intl-id-match": "error",
     "starscraper/unique-test-ids": "error",
     "starscraper/unique-intl-ids": "error",
-    "starscraper/required-fields-for-intl": "error",
+    "starscraper/required-feilds-for-intl": "error",
+    "starscraper/spacing-system": "error",
   },
   --------------
 }

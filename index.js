@@ -237,6 +237,33 @@ module.exports = {
       }
     }
 
+    },
+    'spacing-system' : {
+      create: function (context) {
+        return {
+
+          JSXOpeningElement: function (node) {
+            node.attributes.forEach((attr) => {
+              const attrName = attr.name.name;
+              const isSpaceId = attr.type === 'JSXAttribute' &&
+                    (attrName === 'mt' || attrName === 'mb' || attrName === 'mr' || attrName === 'ml' ||
+                    attrName === 'pt' || attrName === 'pb' || attrName === 'pr' || attrName === 'pl') ;
+              if (isSpaceId && attr.value.type) {
+                const spaceValue = attr.value.value;
+                if ( spaceValue  ) {
+                  context.report({
+                    node,
+                    message: 'Please use spacing[] value instead of absolute pixel',
+                    data: ''
+                  });
+                }
+              }
+            });
+          },
+
+          
+        }
+      }
     }
     }
   };
