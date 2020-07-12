@@ -42,7 +42,7 @@ Install the package
 
   > Enforce Intl Id is unique across files
 
-### 'required-feilds-for-intl'
+### 'required-fields-for-intl'
 
   > Enforce Intl with Id , defaultMessage  and description property
 
