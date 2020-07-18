@@ -74,7 +74,7 @@ Add to rule(s)
     "starscraper/intl-id-match": "error",
     "starscraper/unique-test-ids": "error",
     "starscraper/unique-intl-ids": "error",
-    "starscraper/required-feilds-for-intl": "error",
+    "starscraper/required-fields-for-intl": "error",
     "starscraper/spacing-system": "error",
   },
   --------------
