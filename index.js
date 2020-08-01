@@ -38,10 +38,10 @@ const getFileName = (path) => {
   return abosoluteFileName;
 }
 
+const validInputType = ['button', 'link', 'paragraph', 'input', 'subHeader', 'header', 'tab'];
 
 const checkValideTestId = function (str, path, context, node)  {
   const exactFileName = getFileName(path);
-  const validInputType = ['button', 'link', 'paragraph', 'input', 'subHeader', 'header'];
   const numberOfSplitValue = str && str.split(".");
   const patt = /^([a-z][A-Za-z]).{1,18}$/;
   if(str === null || (numberOfSplitValue && numberOfSplitValue.length !== 3)) {
@@ -74,11 +74,8 @@ const checkValideTestId = function (str, path, context, node)  {
 
 }
 
-
-
 const checkValideIntlId = function (str, path, context, node)  {
   const exactFileName = getFileName(path);
-  const validInputType = ['button', 'link', 'paragraph', 'input', 'subHeader', 'header'];
   const vaildTestType = ['text', 'placeHolder', 'message', 'errorMessage', 'loadingText', 'hoverText']
   const numberOfSplitValue = str && str.split(".");
   const patt = /^([a-z][A-Za-z]).{1,18}$/;
