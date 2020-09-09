@@ -3,11 +3,11 @@ const ids = [];
 const ERRTEST = 'Invalid for testid, please use this format screenName.shortDescription.elementType';
 const ERRTESTFILE = 'Invalid for testid, please use filename for first word for test id';
 const ERRTESTCML = 'Invalid for testid, please use camel case and max 20 charcters for shortDescription ';
-const ERRTESTEXACTENUM = 'Invalid for testid, please use button, link, paragraph, input, subHeader or header for element  type ';
+const ERRTESTEXACTENUM = 'Invalid for testid, please use button, link, paragraph, input, subHeader, header, tab, or banner for element  type ';
 const ERRINTL = 'Invalid for id, please use this format screenName.shortDescription.elementType.textType';
 const ERRINTFILE = 'Invalid for intlid, please use filename for first word for test id';
 const ERRINTCML = 'Invalid for intlid, please use camel case and max 20 charcters for shortDescription ';
-const ERRINTEXACTENUMELM = 'Invalid for testid, please use button, link, paragraph, input, subHeader or header for element type ';
+const ERRINTEXACTENUMELM = 'Invalid for testid, please use button, link, paragraph, input, subHeader, header, tab, or banner for element type ';
 const ERRINTEXACTENUMTXT = 'Invalid for testid, please use text, placeHolder, message, errorMessage, loadingText or hoverText  for text type ';
 
 
@@ -38,7 +38,7 @@ const getFileName = (path) => {
   return abosoluteFileName;
 }
 
-const validInputType = ['button', 'link', 'paragraph', 'input', 'subHeader', 'header', 'tab'];
+const validInputType = ['button', 'link', 'paragraph', 'input', 'subHeader', 'header', 'tab', 'banner'];
 
 const checkValideTestId = function (str, path, context, node)  {
   const exactFileName = getFileName(path);
