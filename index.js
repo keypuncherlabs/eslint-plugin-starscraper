@@ -31,7 +31,7 @@ const fileNameCheck = (exactFileName, firstSplitValue) => {
     camelCasedValue = camelize(exactFileName);
   }
 
-  return firstSplitValue !== camelCasedValue || 'global';
+  return firstSplitValue !== camelCasedValue;
 }
 
 const getFileName = (path) => {
