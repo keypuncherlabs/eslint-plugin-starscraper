@@ -26,10 +26,12 @@ const countHelper = (input, arr ) => {
 const fileNameCheck = (exactFileName, firstSplitValue) => {
   const patt = /^\w+-\w[\w-]*$/;
   let camelCasedValue = exactFileName;
+
   if(patt.test(exactFileName)) {
     camelCasedValue = camelize(exactFileName);
   }
-  return firstSplitValue !== camelCasedValue;
+
+  return firstSplitValue !== camelCasedValue || 'global';
 }
 
 const getFileName = (path) => {
