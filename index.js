@@ -34,6 +34,17 @@ const fileNameCheck = (exactFileName, firstSplitValue) => {
   return firstSplitValue !== camelCasedValue;
 }
 
+const fileNameCheckForIntl= (exactFileName, firstSplitValue) => {
+  const patt = /^\w+-\w[\w-]*$/;
+  let camelCasedValue = exactFileName;
+
+  if(patt.test(exactFileName)) {
+    camelCasedValue = camelize(exactFileName);
+  }
+
+  return firstSplitValue !== camelCasedValue || firstSplitValue === 'global';
+}
+
 const getFileName = (path) => {
   const filenameWithExt = path && path.split("/").pop();
   const abosoluteFileName = filenameWithExt && filenameWithExt.split('.')[0];
@@ -108,7 +119,7 @@ const checkValideIntlId = function (str, path, context, node)  {
       message: ERRINTCML
    });
   }
-  if (exactFileName && numberOfSplitValue && numberOfSplitValue.length === 4 && fileNameCheck(exactFileName,numberOfSplitValue[0])) {
+  if (exactFileName && numberOfSplitValue && numberOfSplitValue.length === 4 && fileNameCheckForIntl(exactFileName,numberOfSplitValue[0])) {
     context.report({
       node: node,
       message: ERRINTFILE
