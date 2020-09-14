@@ -42,7 +42,7 @@ const fileNameCheckForIntl= (exactFileName, firstSplitValue) => {
     camelCasedValue = camelize(exactFileName);
   }
 
-  return firstSplitValue !== camelCasedValue || firstSplitValue === 'global';
+  return firstSplitValue !== camelCasedValue && firstSplitValue !== 'global';
 }
 
 const getFileName = (path) => {
